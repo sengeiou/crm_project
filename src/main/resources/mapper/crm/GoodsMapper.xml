@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.crm.mapper.GoodsMapper">
+
+    <select id="getGoodsList" resultType="com.javasm.crm.entity.Goods">
+        SELECT
+            *
+        FROM crm_goods LEFT JOIN crm_product ON crm_goods.product_id = crm_product.id;
+    </select>
+    <select id="getMaxId" resultType="java.lang.String">
+        SELECT MAX(id) FROM crm_goods;
+    </select>
+
+    <select id="getGoodsAndProdById" resultType="java.util.Map">
+        SELECT
+            g.*,p.*
+        FROM crm_goods g LEFT JOIN crm_product p ON g.product_id = p.id where g.id = #{id};
+    </select>
+</mapper>

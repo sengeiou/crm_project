@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.mapper.CrmOpsMapper">
+
+
+
+    <select id="getId" resultType="string">
+        select id from crm_ops
+        <where>
+
+            <if test="ops_context!=null and ops_context!='' ">
+                and ops_context = #{ops_context}
+            </if>
+        </where>
+    </select>
+
+</mapper>
